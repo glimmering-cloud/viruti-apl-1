@@ -40,16 +40,15 @@ async function startServer() {
       Mention specific stats if they justify the move. 
       Format the response as JSON with "brief", "pros" (array), and "cons" (array).`;
 
-      const model = ai.getGenerativeModel({ model: "gemini-1.5-flash" });
-      
-      const result = await model.generateContent({
-        contents: [{ role: "user", parts: [{ text: prompt }] }],
-        generationConfig: {
+      const response = await ai.models.generateContent({
+        model: "gemini-3-flash-preview",
+        contents: prompt,
+        config: {
           responseMimeType: "application/json",
         }
       });
 
-      const text = result.response.text();
+      const text = response.text;
       if (!text) throw new Error('Empty response from Gemini');
 
       try {

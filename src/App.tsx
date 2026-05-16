@@ -363,23 +363,31 @@ export default function App() {
                           <div className="bg-[var(--m3-surface-container-high)] p-3 rounded-2xl border border-[var(--m3-outline-variant)]">
                             <p className="text-[9px] text-[var(--m3-primary)] font-bold uppercase mb-2">Advantages</p>
                             <ul className="space-y-2">
-                              {analysis.pros.map((pro, i) => (
-                                <li key={i} className="text-xs text-[var(--m3-on-surface)] flex items-start">
-                                  <ChevronRight className="w-4 h-4 text-[var(--m3-primary)] mr-1 flex-shrink-0" />
-                                  {pro}
-                                </li>
-                              ))}
+                              {Array.isArray(analysis.pros) && analysis.pros.length > 0 ? (
+                                analysis.pros.map((pro, i) => (
+                                  <li key={i} className="text-xs text-[var(--m3-on-surface)] flex items-start">
+                                    <ChevronRight className="w-4 h-4 text-[var(--m3-primary)] mr-1 flex-shrink-0" />
+                                    {pro}
+                                  </li>
+                                ))
+                              ) : (
+                                <li className="text-xs text-[var(--m3-on-surface-variant)] italic">No specific advantages identified.</li>
+                              )}
                             </ul>
                           </div>
                           <div className="bg-[var(--m3-surface-container-high)] p-3 rounded-2xl border border-[var(--m3-outline-variant)]">
                             <p className="text-[9px] text-[var(--m3-error)] font-bold uppercase mb-2">Risk Factors</p>
                             <ul className="space-y-2">
-                              {analysis.cons.map((con, i) => (
-                                <li key={i} className="text-xs text-[var(--m3-on-surface)] flex items-start">
-                                  <ChevronRight className="w-4 h-4 text-[var(--m3-error)] mr-1 flex-shrink-0" />
-                                  {con}
-                                </li>
-                              ))}
+                              {Array.isArray(analysis.cons) && analysis.cons.length > 0 ? (
+                                analysis.cons.map((con, i) => (
+                                  <li key={i} className="text-xs text-[var(--m3-on-surface)] flex items-start">
+                                    <ChevronRight className="w-4 h-4 text-[var(--m3-error)] mr-1 flex-shrink-0" />
+                                    {con}
+                                  </li>
+                                ))
+                              ) : (
+                                <li className="text-xs text-[var(--m3-on-surface-variant)] italic">No significant risks detected.</li>
+                              )}
                             </ul>
                           </div>
                         </div>
