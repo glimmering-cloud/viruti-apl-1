@@ -1,0 +1,8 @@
+{
+  "name": "Squad-Swap Cricket Engine",
+  "description": "Tactical cricket lineup manager with AI-powered match simulation and tactical insights.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
